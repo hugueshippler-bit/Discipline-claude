@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discipline et performance durable - 3H Conseils</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        header .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            max-width: 180px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            font-style: italic;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .info-bar {
+            background: white;
+            padding: 30px;
+            margin: -30px auto 40px;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .info-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .info-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        section {
+            background: white;
+            margin: 40px auto;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f39c12;
+        }
+        
+        .accordion {
+            margin-top: 20px;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-item:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .accordion-header {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: background 0.3s;
+        }
+        
+        .accordion-header:hover {
+            background: #e9ecef;
+        }
+        
+        .accordion-header.active {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s;
+            font-size: 1.2em;
+        }
+        
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+        
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 20px;
+        }
+        
+        .objective-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-left: 4px solid #f39c12;
+            border-radius: 4px;
+        }
+        
+        .objective-item strong {
+            color: #2c3e50;
+        }
+        
+        .map-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+        
+        .download-icon {
+            font-size: 1.5em;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #f39c12;
+        }
+        
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .tagline {
+                font-size: 1.1em;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .info-bar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Crect fill='%23FFC107' x='200' y='110' width='58' height='190'/%3E%3Crect fill='%23FFC107' x='200' y='290' width='140' height='58'/%3E%3Crect fill='%23FFC107' x='282' y='290' width='58' height='190'/%3E%3Crect fill='%23FFC107' x='374' y='110' width='58' height='370'/%3E%3Crect fill='%23FFC107' x='374' y='240' width='140' height='58'/%3E%3Crect fill='%23FFC107' x='584' y='110' width='58' height='190'/%3E%3Crect fill='%23FFC107' x='502' y='290' width='140' height='58'/%3E%3Crect fill='%23FFC107' x='584' y='290' width='58' height='190'/%3E%3Ctext x='50' y='600' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='%23424242'%3E3H CONSEILS%3C/text%3E%3Ctext x='50' y='680' font-family='Arial, sans-serif' font-size='40' fill='%23424242'%3ECOACHING %26 FORMATION%3C/text%3E%3C/svg%3E" alt="Logo 3H Conseils" class="logo">
+            <h1>Discipline et performance durable</h1>
+            <p class="tagline">Bien faire, ce n'est pas faire davantage, c'est faire mieux !</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="info-bar">
+            <div class="info-item">
+                <div class="info-icon">📅</div>
+                <div class="info-label">Date</div>
+                <div class="info-value">Semaine du 2 février 2025</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-label">Lieu</div>
+                <div class="info-value">L'Étrat (42580)</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">⏱️</div>
+                <div class="info-label">Durée</div>
+                <div class="info-value">7 heures</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">✅</div>
+                <div class="info-label">Certification</div>
+                <div class="info-value">Qualiopi</div>
+            </div>
+        </div>
+        
+        <section>
+            <h2>🎯 Objectifs de la formation</h2>
+            <p style="font-size: 1.1em; margin-bottom: 25px; color: #555;">
+                Cette formation vous permet de retrouver la rigueur au service de votre efficacité commerciale, 
+                en développant des stratégies concrètes et durables de discipline personnelle et professionnelle.
+            </p>
+            
+            <div class="objective-item">
+                <strong>📌 Objectif 1 :</strong> Identifier au moins 3 leviers personnels de motivation et mettre en place 1 rituel hebdomadaire de maintien d'énergie dans les 30 jours.
+            </div>
+            
+            <div class="objective-item">
+                <strong>📌 Objectif 2 :</strong> Planifier et prioriser vos tâches quotidiennes à l'aide d'un outil adapté et justifier votre méthode.
+            </div>
+            
+            <div class="objective-item">
+                <strong>📌 Objectif 3 :</strong> Appliquer 2 micro-techniques d'autodiscipline adaptées à votre profil dans les 2 semaines suivant la formation.
+            </div>
+            
+            <div class="objective-item">
+                <strong>📌 Objectif 4 :</strong> Exprimer un feedback assertif en respectant les règles de communication constructive.
+            </div>
+            
+            <div class="objective-item">
+                <strong>📌 Objectif 5 :</strong> Créer un plan d'action individuel durable, intégrant 3 habitudes, 3 indicateurs et 1 bilan hebdomadaire.
+            </div>
+        </section>
+        
+        <section>
+            <h2>📚 Programme détaillé</h2>
+            <p style="margin-bottom: 25px; color: #555;">
+                Un parcours structuré en 8 séquences pédagogiques, complété par des sessions de co-développement pour ancrer durablement vos apprentissages.
+            </p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>🚀 Icebreaker & ouverture (15 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Créer la relation, recueillir vos attentes et présenter les objectifs de la formation.</p>
+                        <p><strong>Méthode :</strong> Icebreaker "La boussole de ma discipline" - positionnez votre rigueur du moment sur 4 points cardinaux : structure, motivation, constance, plaisir.</p>
+                        <p><strong>Accessibilité :</strong> Outil visuel simple, possibilité orale sans lecture, couleurs contrastées.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>💡 Discipline : contrainte ou liberté ? (45 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Comprendre le rôle de la discipline dans la performance.</p>
+                        <p><strong>Méthode :</strong> Classe inversée avec capsule vidéo "La discipline choisie" envoyée en amont. Discussion réflexive et mini-cas pratique "le lundi sans structure".</p>
+                        <p><strong>Accessibilité :</strong> Capsule sous-titrée, audio et PDF fournis.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>🔥 Identifier ses leviers de motivation (60 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Identifier vos leviers personnels et signaux de démotivation.</p>
+                        <p><strong>Méthode :</strong> Outil "Thermomètre d'énergie" + jeu des cartes motivations en écran partagé.</p>
+                        <p><strong>Accessibilité :</strong> Lecture minimale, pictogrammes explicites, compatible PMR.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>📊 Routine et priorisation (60 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Analyser vos routines et planifier efficacement.</p>
+                        <p><strong>Méthode :</strong> Atelier pratique sur la matrice Eisenhower simplifiée + exercice "test de 3 jours parfaits".</p>
+                        <p><strong>Accessibilité :</strong> Gabarit Excel lisible avec contraste fort et police sans empattement.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>⚡ Techniques d'autodiscipline et micro-objectifs (60 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Appliquer des techniques concrètes d'autodiscipline.</p>
+                        <p><strong>Méthode :</strong> Brainstorm visuel "rituels qui tiennent" + micro-exercice de visualisation guidée.</p>
+                        <p><strong>Accessibilité :</strong> Exercice purement oral, accessible à tous profils DYS/PMR.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>🎯 Cohérence et évaluation personnelle (60 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Évaluer la cohérence entre vos actions et vos objectifs.</p>
+                        <p><strong>Méthode :</strong> Auto-diagnostic guidé + création de votre "tableau de bord simplifié".</p>
+                        <p><strong>Accessibilité :</strong> Grille PDF interactive lisible par lecteurs d'écran.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>💬 Communication assertive et ajustements (60 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Développer une communication assertive avec votre hiérarchie.</p>
+                        <p><strong>Méthode :</strong> Jeux de rôles à distance "Parler discipline sans braquer" + feedback bienveillant.</p>
+                        <p><strong>Accessibilité :</strong> Jeu oral, support synthétique accessible, consignes lues à voix haute.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>📝 Création du plan d'action individuel (45 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Créer un plan de discipline durable sur 30 jours.</p>
+                        <p><strong>Méthode :</strong> Atelier guidé "Plan 30 jours" : 3 objectifs, 3 habitudes, 3 indicateurs.</p>
+                        <p><strong>Accessibilité :</strong> Fiche modèle accessible en Word balisé.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>🎉 Conclusion & évaluation (15 min)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Objectifs :</strong> Identifier un apprentissage clé et formuler un engagement concret.</p>
+                        <p><strong>Méthode :</strong> Tour de parole "Je repars avec…" + micro-formulaire instantané.</p>
+                        <p><strong>Accessibilité :</strong> Formulaire compatible lecteur d'écran, possible en verbal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📍 Lieu de formation</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1em;">
+                <strong>300 rue des Cumines, 42580 L'Étrat</strong><br>
+                Proche de Saint-Étienne et Lyon, facilement accessible.
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.7890123456!2d4.3862345!3d45.4897123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5a9d9e9e9e9e9%3A0x1234567890abcdef!2s300%20Rue%20des%20Cumines%2C%2042580%20L'%C3%89trat!5e0!3m2!1sfr!2sfr!4v1234567890123" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+        
+        <section>
+            <h2>📥 Documents à télécharger</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn" onclick="alert('Programme complet disponible sur demande'); return false;">
+                    <span class="download-icon">📄</span>
+                    <span>Programme complet (PDF)</span>
+                </a>
+                <a href="#" class="download-btn" onclick="alert('Livret stagiaire disponible sur demande'); return false;">
+                    <span class="download-icon">📖</span>
+                    <span>Livret d'apprentissage (PDF)</span>
+                </a>
+            </div>
+            <p style="margin-top: 20px; color: #666; font-size: 0.95em;">
+                💡 <em>Pour recevoir les documents complets, contactez-nous directement par email ou téléphone.</em>
+            </p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>3H Conseils</h3>
+                <p>Organisme de formation certifié Qualiopi</p>
+                <p><em>Mieux se connaître, comprendre les autres, se dépasser</em></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 <a href="tel:0609982202">06 09 98 22 02</a></p>
+                <p>✉️ <a href="mailto:hugues.hippler@3hconseils.com">hugues.hippler@3hconseils.com</a></p>
+                <p>📍 300 rue des Cumines<br>42580 L'Étrat, France</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Accessibilité & Handicap</h3>
+                <p>Lors de l'inscription, nous étudions avec vous les différents aménagements et adaptations possibles pour favoriser votre apprentissage.</p>
+                <p>Nous pouvons nous appuyer sur un réseau de partenaires si nécessaire.</p>
+                <p><strong>Référent Handicap :</strong><br>
+                Hugues HIPPLER<br>
+                📞 <a href="tel:0609982202">06 09 98 22 02</a><br>
+                ✉️ <a href="mailto:hugues.hippler@3hconseils.com">hugues.hippler@3hconseils.com</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 3H Conseils - Tous droits réservés | Formation certifiée Qualiopi</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Gestion de l'accordéon
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+                
+                // Fermer tous les accordéons
+                accordionHeaders.forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+                
+                // Ouvrir celui cliqué s'il n'était pas actif
+                if (!isActive) {
+                    header.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
